@@ -1,14 +1,11 @@
 import React from 'react';
-import {View, StyleSheet ,SafeAreaView,Text} from 'react-native';
+import {View, StyleSheet, Text,SafeAreaView} from 'react-native';
 
-const Rewards = () => {
+const About = () => {
     return (
         <SafeAreaView>
              <Text style={[styles.heading1]}>OnTheWay</Text>
-            <Text>Rewards</Text>
-            <View>
-                
-            </View>
+            <Text>About</Text>
         </SafeAreaView>
     );
 }
@@ -26,4 +23,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default Rewards;
+export default About;

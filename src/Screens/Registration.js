@@ -1,10 +1,39 @@
 import { NavigationContainer } from '@react-navigation/native'
-import React from 'react'
+import React,{useState} from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View,Linking } from 'react-native'
+import api from '../Api/Auth';
 
 // uname email phoneno pass
 // email pass
 function Registration({navigation}) {
+
+    const [fullName, setFullName] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+  
+    const handleRegistration = async () => {
+      try {
+        const response = await api.post('/', {
+          name: fullName,
+          email,
+          phoneNumber,
+          password,
+        });
+  
+        if (response.data.success) {
+          
+          console.log('Registration successful');
+          navigation.navigate('Login'); 
+        } else {
+          
+          console.log('Registration failed:', response.data.msg);
+        }
+      } catch (error) {
+        console.error('Error during registration:', error);
+      }
+    };
+  
     return (
         <SafeAreaView>
             <ScrollView>
@@ -14,35 +43,35 @@ function Registration({navigation}) {
                         <Text style={[styles.heading2,{alignSelf:'flex-start'}]}>Create Account</Text>
                         <TextInput
                             style={styles.input}
-                            // onChangeText={onChangeNumber}
-                            // value={number}
+                            onChangeText={setFullName}
+                            value={fullName}
                             placeholder="Full name"
                             keyboardType='default'
                         />
                         <TextInput
                             style={styles.input}
-                            // onChangeText={onChangeNumber}
-                            // value={number}
+                            onChangeText={setPhoneNumber}
+                            value={phoneNumber}
                             placeholder="phone number"
                             keyboardType="numeric"
                         />
                         <TextInput
                             style={styles.input}
-                            // onChangeText={onChangeNumber}
-                            // value={number}
+                            onChangeText={setEmail}
+                            value={email}
                             placeholder="email"
                             keyboardType="default"
                         />
                         <TextInput
                             style={styles.input}
-                            // onChangeText={onChangeNumber}
-                            // value={number}
+                            onChangeText={setPassword}
+                            value={password}
                             placeholder="Password"
                             keyboardType="default"
                         />
 
                         <TouchableOpacity style={styles.btn} >
-                            <Text style={{fontSize:20,color:'white'}}  onPress={()=>navigation.navigate('Tab')}>Register</Text>
+                            <Text style={{fontSize:20,color:'white'}}  onPress={handleRegistration}>Register</Text>
                         </TouchableOpacity>
                         <Text style={{ color: 'black', fontSize: 14, fontWeight: 'bold' }}  onPress={()=>navigation.navigate('Login')}>Already have an account ? <Text style={{ color: 'blue', fontSize: 16, fontWeight: 'bold' }}>
                         Login
@@ -103,6 +132,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 30,
         fontWeight: 'bold',
+        elevation: 6,
     }
 })
 

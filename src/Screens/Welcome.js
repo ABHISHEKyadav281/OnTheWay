@@ -19,11 +19,9 @@ function Welcome({navigation}) {
                 </View>
 
                 <View>
-                {/* onPress = () => {
-    props.navigation.navigate('ScreenTwo');
-  }; */}
-                    <Text style={styles.btn}  onPress={()=>navigation.navigate('Registration')}>Get Started 
-                     <Icon name='arrow-forward' size={20}  ></Icon>
+                
+                    <Text style={styles.btn}  onPress={()=>navigation.navigate('Registration')}>Get Started &nbsp;
+                     <Icon name='arrow-forward' size={20} ></Icon>
                     </Text>
                     <Text style={{ color: 'black', fontSize: 14, fontWeight: 'bold', paddingLeft: 40 }}  onPress={()=>navigation.navigate('Login')}>Already have an account ? <Text style={{ color: 'blue', fontSize: 16, fontWeight: 'bold' }}>
                         Login
@@ -69,7 +67,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 30,
+        gap: 40,
+        elevation: 6,
     },
     slog: {
         color: 'skyblue',
