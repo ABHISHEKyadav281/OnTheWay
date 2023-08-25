@@ -13,16 +13,21 @@ const Tabs = () => {
     const Tab = createBottomTabNavigator();
     return (
         <Tab.Navigator
-        tabBarOptions={{
-            activeTintColor: '#0071dc',
-            // activeTintColor: '#062743',
-        inactiveTintColor: '#9ea9b3',
-        showLabel: false,
-        }}
+            tabBarOptions={{
+                activeTintColor: '#0071dc',
+                // activeTintColor: '#062743',
+                inactiveTintColor: '#9ea9b3',
+                showLabel: false,
+            }}
         >
-            
 
-
+            <Tab.Screen name="Account"
+                component={Account}
+                options={{
+                    tabBarIcon: ({ size, color }) => (
+                        <Icon name="person-sharp" size={size} color={color} />
+                    )
+                }} />
             <Tab.Screen name="Home"
                 component={Home}
                 options={{
@@ -44,13 +49,7 @@ const Tabs = () => {
                         <CustomIconName name='history' size={size} color={color} />
                     )
                 }} />
-            <Tab.Screen name="Account"
-                component={Account}
-                options={{
-                    tabBarIcon: ({ size, color }) => (
-                        <Icon name="person-sharp" size={size} color={color} />
-                    )
-                }} />
+
         </Tab.Navigator>
     );
 }

@@ -8,20 +8,24 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [userProfile, setUserProfile] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [token, setToken] = useState('');
 
-  const login = (userProfileData) => {
+  const login = (userProfileData,authToken) => {
     setUserProfile(userProfileData);
-    console.log(userProfile);
     setIsAuthenticated(true);
+    setToken(authToken);
+    // console.log("yogi "+userProfile);
+
   };
 
   const logout = () => {
     setUserProfile(null);
     setIsAuthenticated(false);
+    setToken(null);
   };
 
   return (
-    <AuthContext.Provider value={{ userProfile, isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ userProfile, isAuthenticated,token, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

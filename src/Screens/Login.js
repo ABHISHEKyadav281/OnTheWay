@@ -10,10 +10,10 @@ import { useAuth } from '../context/AuthContext';
 
 
 function Login({ navigation }) {
-const {login}=useAuth();
+const {login,token}=useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [token, setToken] = useState('');
+  
 
   const handleLogin = async () => {
     try {
@@ -23,9 +23,10 @@ const {login}=useAuth();
       });
 
       if (response.data.token) {
-        login(response.data);
+        // login(response.data);
+        const authToken = response.data.token;
+        login(response.data, authToken); 
         console.log('Login successful');
-        setToken(response.data.token);
         navigation.navigate('Tab');
       } else {
         console.log('Login failed:', response.data.msg);
@@ -40,10 +41,12 @@ const {login}=useAuth();
       const response = await api.post('/walmart-register');
 
       if (response.data && response.data.token) {
-        login(response.data);
-        console.log(response.data);
+        // login(response.data);
+        const authToken = response.data.token;
+        console.log(authToken);
+        login(response.data, authToken); 
         console.log('Login successful');
-        setToken(response.data.token);
+        console.log(response.data);
         navigation.navigate('Tab');
       } else {
         console.log('Login failed:', response.data.msg);

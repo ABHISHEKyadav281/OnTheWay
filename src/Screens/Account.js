@@ -3,24 +3,24 @@ import { View, StyleSheet, Text, SafeAreaView, Image, Pressable } from 'react-na
 import api from '../Api/Auth';
 import { useAuth } from '../context/AuthContext';
 
-
 const Account = ({navigation}) => {
 
-    const { userProfile, isAuthenticated, login, logout } = useAuth();
-  console.log(userProfile.name);
-  console.log(userProfile.name);
+    const { userProfile, isAuthenticated, login, logout,token } = useAuth();
+  console.log(userProfile);
     useEffect(() => {
         const fetchUserProfile = async () => {
           try {
             if (isAuthenticated) {
-              const response = await api.get('/profile'); 
+              const response = await api.get('/profile',{  headers: {
+                Authorization: `Bearer ${token}`,
+              }, }); 
     
-              if (response.data) {
-                login(response.data);
-              }
+            //   if (response.data) {
+            //     login(response.data);
+            //   }
             }
           } catch (error) {
-            console.error('Error fetching user profile:', error);
+            // console.error('Error fetching user profile:', error);
           }
         };
     
@@ -28,8 +28,8 @@ const Account = ({navigation}) => {
       }, [isAuthenticated, login]); 
 
       const handleLogout=()=>{
+          navigation.navigate('Welcome');
           logout();
-          navigation.navigate('Login');
       }
 
     return (
@@ -38,7 +38,7 @@ const Account = ({navigation}) => {
             <View style={styles.container}>
                 <View style={styles.upperbox}>
                     <View style={{width: 80,backgroundColor:'red',height: 80,borderRadius:40,overflow: 'hidden',marginBottom:15}}>
-                        {userProfile.avatar?  <Image source={{ uri:userProfile.avatar }}
+                        {userProfile? <Image source={{ uri:userProfile.avatar }}
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         :
                         <Image source={{ uri: 'https://static.vecteezy.com/system/resources/thumbnails/002/331/828/small/delivery-boy-riding-scooter-with-cityline-background-vector.jpg' }}
@@ -47,7 +47,7 @@ const Account = ({navigation}) => {
                         <Image source={{ uri: 'https://static.vecteezy.com/system/resources/thumbnails/002/331/828/small/delivery-boy-riding-scooter-with-cityline-background-vector.jpg' }}
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </View>
-                    <Text style={{fontWeight:'800',fontSize:22,fontStyle:'italic'}}>{userProfile.name}</Text>
+                    <Text style={{fontWeight:'800',fontSize:22,fontStyle:'italic'}}>{userProfile?.name}</Text>
                     <Text style={{fontWeight:'800',fontSize:12,fontStyle:'italic'}}> <Text style={{fontWeight:'800',fontSize:12,color:'green'}}>◉</Text> online</Text>
                 </View>
                 <View style={styles.lowerbox}>

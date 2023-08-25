@@ -6,11 +6,16 @@ import MainStack from './MainStack';
 import api from '../Api/Auth';
 import { useAuth } from '../context/AuthContext';
 const RootNavigation = () => {
-    
+    // const [yoyo,setYoyo]=useState(false);
 const {isAuthenticated}=useAuth();
+// useEffect(()=>{
+//     setYoyo(isAuthenticated);
+//     console.log("first "+yoyo)
+// },[isAuthenticated]);
     return (
         <NavigationContainer>
             { isAuthenticated ? <MainStack /> : <Auth />}
+         {/* <MainStack />  */}
               
         </NavigationContainer>
     );

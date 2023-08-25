@@ -8,6 +8,10 @@ import History from '../Screens/History'
 import Help from '../Screens/Help'
 import About from '../Screens/About'
 import Verify from '../Screens/Verify'
+import Welcome from '../Screens/Welcome'
+import Registration from '../Screens/Registration'
+import Login from '../Screens/Login'
+import Account from '../Screens/Account'
 
 const MainStack=()=> {
     const Stack=createStackNavigator();
@@ -16,7 +20,9 @@ const MainStack=()=> {
     screenOptions={{
       headerShown: false, // Hide the navigation header for all screens
     }}>
-        <Stack.Screen name="Tabs" component={Tabs} />
+      <Stack.Screen name="Welcome" component={Welcome} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Registration" component={Registration} />
         <Stack.Screen name="Tab" component={Tabs} />
       <Stack.Screen name="Update" component={Update} />
       <Stack.Screen name="Rewards" component={Rewards} />
@@ -24,6 +30,7 @@ const MainStack=()=> {
       <Stack.Screen name="Help" component={Help} />
       <Stack.Screen name="About" component={About} />
       <Stack.Screen name="Verify" component={Verify} />
+      <Stack.Screen name="Account" component={Account} />
     </Stack.Navigator>
   )
 }
