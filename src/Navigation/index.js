@@ -3,7 +3,7 @@ import {View, StyleSheet} from 'react-native';
 import Auth from './Auth';
 import { NavigationContainer } from '@react-navigation/native';
 import MainStack from './MainStack';
-import api from '../Api/Auth';
+import api from '../../Backend/Auth';
 import { useAuth } from '../context/AuthContext';
 const RootNavigation = () => {
     // const [yoyo,setYoyo]=useState(false);

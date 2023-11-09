@@ -5,7 +5,7 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity
 import ImagePicker from 'react-native-image-picker';
 
 import { launchImageLibrary } from 'react-native-image-picker';
-import api from '../Api/Auth';
+import api from '../../Backend/Auth';
 import { useAuth } from '../context/AuthContext';
 
 const createFormData = (photo, body = {}) => {

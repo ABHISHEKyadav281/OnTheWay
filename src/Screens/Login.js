@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import api from '../Api/Auth';
+import api from '../../Backend/Auth';
 import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 // import * as Font from "expo-font";
 // import {FontAwesome } from '@expo/vector-icons';

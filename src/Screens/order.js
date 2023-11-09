@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, SafeAreaView, Text } from 'react-native';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
-import api from '../Api/Auth';
+import api from '../../Backend/Auth';
 import { useAuth } from '../context/AuthContext';
 import { TextInput } from 'react-native-gesture-handler';
 import axios from 'axios';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
-import api from '../Api/Auth';
+import api from '../../Backend/Auth';
 import { useAuth } from '../context/AuthContext';
 import moment from 'moment';
 const History = () => {

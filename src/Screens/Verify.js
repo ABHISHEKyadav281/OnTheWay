@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text, SafeAreaView, Image } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import api from '../Api/Auth';
+import api from '../../Backend/Auth';
 import ImagePicker from 'react-native-image-picker';
 
 import { launchImageLibrary } from 'react-native-image-picker';

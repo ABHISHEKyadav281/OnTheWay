@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Store from '../Redux/Store'; 
+// import Store from '../Redux/Store'; 
 
 const api = axios.create({
   baseURL: 'http://192.168.40.159:3000/api/users',

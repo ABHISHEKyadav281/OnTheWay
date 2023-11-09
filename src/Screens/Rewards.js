@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import {View, StyleSheet ,SafeAreaView,Text, Image} from 'react-native';
-import api from '../Api/Auth';
+import api from '../../Backend/Auth';
 import { useAuth } from '../context/AuthContext';
 const Rewards = () => {
     const { token } = useAuth(); 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
 import { useAuth } from '../context/AuthContext';
-import api from '../Api/Auth';
+import api from '../../Backend/Auth';
 import axios from 'axios';
 import MapView, { Marker } from 'react-native-maps';
 
